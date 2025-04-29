@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechHub Computer Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more precise styling */
+        .hero-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .course-card:hover .course-icon {
+            transform: rotate(10deg) scale(1.1);
+        }
+        .stats-item {
+            position: relative;
+        }
+        .stats-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 60%;
+            width: 1px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .stats-item:last-child::after {
+            display: none;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            background-color: #f8fafc;
+        }
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-laptop-code text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-blue-600">TechHub</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <a href="#" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Services</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Courses</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">About</a>
+                        <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">Book Now</button>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Services</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Courses</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">About</a>
+                <a href="#" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Contact</a>
+                <div class="mt-4 pl-3">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium w-full transition duration-300">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-gradient text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                    Your Gateway to Digital Excellence
+                </h1>
+                <p class="mt-6 max-w-lg mx-auto text-xl">
+                    TechHub offers cutting-edge computer services, training, and solutions to empower your digital journey.
+                </p>
+                <div class="mt-10 flex justify-center space-x-4">
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-blue-700 bg-white hover:bg-gray-50 transition duration-300">
+                        Explore Services
+                    </a>
+                    <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-800 bg-opacity-80 hover:bg-opacity-100 transition duration-300">
+                        <i class="fas fa-play-circle mr-2"></i> Watch Video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div class="stats-item text-center">
+                    <p class="text-4xl font-extrabold">5,000+</p>
+                    <p class="mt-2 text-sm font-medium text-blue-200">Students Trained</p>
+                </div>
+                <div class="stats-item text-center">
+                    <p class="text-4xl font-extrabold">15+</p>
+                    <p class="mt-2 text-sm font-medium text-blue-200">Years Experience</p>
+                </div>
+                <div class="stats-item text-center">
+                    <p class="text-4xl font-extrabold">50+</p>
+                    <p class="mt-2 text-sm font-medium text-blue-200">Certified Experts</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-4xl font-extrabold">24/7</p>
+                    <p class="mt-2 text-sm font-medium text-blue-200">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="py-16 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Our Comprehensive Services
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-500">
+                    We offer a wide range of computer services to meet all your digital needs.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-100 rounded-md p-3">
+                                <i class="fas fa-desktop text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Computer Repair</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Fast and reliable repair services for all computer hardware and software issues.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-blue-600 font-medium hover:text-blue-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-green-100 rounded-md p-3">
+                                <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Virus Removal</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Complete malware and virus removal with data protection and prevention strategies.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-green-600 font-medium hover:text-green-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 rounded-md p-3">
+                                <i class="fas fa-network-wired text-purple-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Networking</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Professional network setup, configuration, and troubleshooting for homes and businesses.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-purple-600 font-medium hover:text-purple-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-yellow-100 rounded-md p-3">
+                                <i class="fas fa-database text-yellow-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Data Recovery</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Expert data recovery services for accidentally deleted or corrupted files and drives.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-yellow-600 font-medium hover:text-yellow-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-red-100 rounded-md p-3">
+                                <i class="fas fa-print text-red-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Printer Services</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Installation, maintenance, and repair services for all types of printers and scanners.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-red-600 font-medium hover:text-red-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-indigo-100 rounded-md p-3">
+                                <i class="fas fa-laptop-code text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Custom Solutions</h3>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Tailored computer solutions designed specifically for your unique requirements.
+                        </p>
+                        <div class="mt-6">
+                            <a href="#" class="text-indigo-600 font-medium hover:text-indigo-500 inline-flex items-center">
+                                Learn more <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Our Popular Courses
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-500">
+                    Enhance your skills with our industry-relevant computer courses.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Course 1 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-blue-200 transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                                    Beginner
+                                </span>
+                                <h3 class="mt-2 text-lg font-medium text-gray-900">Basic Computer Literacy</h3>
+                            </div>
+                            <div class="course-icon bg-blue-100 rounded-full p-3 transition duration-300">
+                                <i class="fas fa-keyboard text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Master essential computer skills from typing to internet navigation and basic software.
+                        </p>
+                        <div class="mt-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">4 Weeks</span>
+                            </div>
+                            <button class="text-blue-600 font-medium hover:text-blue-500">
+                                Enroll Now <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-green-200 transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    Intermediate
+                                </span>
+                                <h3 class="mt-2 text-lg font-medium text-gray-900">Web Development</h3>
+                            </div>
+                            <div class="course-icon bg-green-100 rounded-full p-3 transition duration-300">
+                                <i class="fas fa-code text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Learn HTML, CSS, JavaScript and build responsive websites from scratch.
+                        </p>
+                        <div class="mt-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">8 Weeks</span>
+                            </div>
+                            <button class="text-green-600 font-medium hover:text-green-500">
+                                Enroll Now <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 -->
+                <div class="course-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-purple-200 transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                                    Advanced
+                                </span>
+                                <h3 class="mt-2 text-lg font-medium text-gray-900">Graphic Design</h3>
+                            </div>
+                            <div class="course-icon bg-purple-100 rounded-full p-3 transition duration-300">
+                                <i class="fas fa-paint-brush text-purple-600 text-xl"></i>
+                            </div>
+                        </div>
+                        <p class="mt-4 text-gray-500">
+                            Master Adobe Photoshop, Illustrator and create stunning visual designs.
+                        </p>
+                        <div class="mt-6 flex justify-between items-center">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-gray-400 mr-1"></i>
+                                <span class="text-sm text-gray-500">6 Weeks</span>
+                            </div>
+                            <button class="text-purple-600 font-medium hover:text-purple-500">
+                                Enroll Now <i class="fas fa-arrow-right ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
+                    View All Courses <i class="fas fa-chevron-right ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    What Our Clients Say
+                </h2>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-500">
+                    Don't just take our word for it - hear from our satisfied customers.
+                </p>
+            </div>
+            
+            <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Sarah Johnson">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Sarah Johnson</h4>
+                            <p class="text-gray-500">Small Business Owner</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600 italic">
+                        "TechHub completely transformed our office network. Their team was professional, knowledgeable, and completed the work ahead of schedule. Highly recommended!"
+                    </p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Michael Chen">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">Michael Chen</h4>
+                            <p class="text-gray-500">College Student</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600 italic">
+                        "The web development course was exactly what I needed to start my career. The instructors were patient and explained complex concepts in simple terms."
+                    </p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="David Wilson">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-lg font-medium text-gray-900">David Wilson</h4>
+                            <p class="text-gray-500">IT Manager</p>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600 italic">
+                        "When our server crashed, TechHub recovered all our critical business data. Their emergency response was quick and their pricing was fair."
+                    </p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star-half-alt text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-blue-700">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                    Ready to solve your tech problems?
+                </h2>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-blue-100">
+                    Whether you need computer repair, training, or custom solutions, our team is ready to help.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10 transition duration-300">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Now
+                    </a>
+                    <a href="#" class="flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-800 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10 transition duration-300">
+                        <i class="fas fa-envelope mr-2"></i> Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Services</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Computer Repair</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Virus Removal</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Data Recovery</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Networking</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Courses</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Basic Computer</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Web Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Graphic Design</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Programming</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Company</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white text-sm font-semibold tracking-wider uppercase">Connect</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Facebook</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Twitter</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Instagram</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+                <div class="flex items-center">
+                    <i class="fas fa-laptop-code text-blue-400 text-2xl mr-2"></i>
+                    <span class="text-xl font-bold text-white">TechHub</span>
+                </div>
+                <p class="mt-4 md:mt-0 text-gray-400 text-sm">
+                    &copy; 2023 TechHub Computer Center. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for mobile menu toggle -->
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Simple animation for course cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseCards = document.querySelectorAll('.course-card');
+            courseCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
